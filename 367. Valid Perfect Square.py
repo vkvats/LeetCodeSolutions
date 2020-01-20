@@ -18,6 +18,3 @@ def perfectSquare( num):
             start = mid_num + 1
     return False
 
-
-
-print(perfectSquare(104976))
