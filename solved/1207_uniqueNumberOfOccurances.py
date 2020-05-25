@@ -1,3 +1,6 @@
+# Imports
+from collections import Counter
+
 
 def uniqueOccurrences(arr) -> bool:
     flag = False
@@ -9,9 +12,23 @@ def uniqueOccurrences(arr) -> bool:
 
     return flag
 
+# fast method
+def uniqueOccurenceFast(arr):
+    flag = False
+    count_dict = Counter(arr)
+    if len(count_dict.values()) == len(set(count_dict.values())):
+        flag = True
+    return flag
+
+# less line of code
+def uniqueOccurenceLessCode(arr):
+    return len(Counter(arr).values()) == len(set(Counter(arr).values()))
+
 if __name__ == '__main__':
     # arr = [1, 2, 2, 1, 1, 3]
     # arr = [1, 2]
-    # arr = [-3, 0, 1, -3, 1, 1, 1, -3, 10, 0]
-    arr = []
-    print(uniqueOccurrences(arr))
+    arr = [-3, 0, 1, -3, 1, 1, 1, -3, 10, 0]
+    # arr = []
+    # print(uniqueOccurrences(arr))
+    # print(uniqueOccurenceFast(arr))
+    print(uniqueOccurenceLessCode(arr))

@@ -1,0 +1,14 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="part1.solve_luddy.original" />
+          <option value="part1.solve_luddy.circular" />
+          <option value="part1.solve_luddy.luddy" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
