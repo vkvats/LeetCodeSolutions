@@ -21,10 +21,15 @@ def kidsWithCandiesNumpy(candies, extracandies):
     with_extracandy = with_extracandy >=max_candy
     return with_extracandy
 
+# faster implementation using list comprehension
+def kidsWithCandiesListComprehension(candies, extraCandies):
+    return [candy + extraCandies >= max(candies) for candy in candies]
+
 if __name__ == '__main__':
     # candies = [2, 3, 5, 1, 3]
     # extraCandies = 3
     candies = [12, 1, 12]
     extraCandies = 10
-    print(kidsWithCandiesNumpy(candies, extraCandies))
+    # print(kidsWithCandiesNumpy(candies, extraCandies))
     # print(kidsWithCandies(candies, extraCandies))
+    print(kidsWithCandiesListComprehension(candies, extraCandies))
