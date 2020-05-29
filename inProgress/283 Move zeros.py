@@ -14,7 +14,20 @@ def moveZeroesExtend(nums):
     output.extend([0] * count)
     return output
 
+# best solution
+def moveZerosBest(nums):
+    i = 0
+    for n in nums:
+        if n != 0:
+            nums[i] = n
+            i += 1
+
+    while i < len(nums):
+        nums[i] = 0
+        i += 1
+    return nums
+
 if __name__  == '__main__':
     # nums = [0,1,0,3,12]
     nums = [0,0,1]
-    print(moveZeroesExtend(nums))
+    print(moveZerosBest(nums))
