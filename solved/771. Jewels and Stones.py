@@ -7,8 +7,11 @@ def numJewelsInStones(J, S):
         total_jweles += counts.get(j,0)
     return total_jweles
 
+def numJewelsInStonesBest(J, S):
+    return sum(count in J for count in S) # find the meaning
+
 
 if __name__ == '__main__':
     J = "aA"
     S = "aAAbbbb"
-    print(numJewelsInStones(J,S))
+    print(numJewelsInStonesBest(J,S))
