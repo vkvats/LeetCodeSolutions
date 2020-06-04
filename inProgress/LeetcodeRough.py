@@ -1,6 +1,17 @@
-matrix = [[3, 7, 8], [9, 11, 13], [15, 16, 17]]
-matrix = [[1,10,4,2],[9,3,8,7],[15,16,17,12]]
-unzipped = zip(*matrix)
-print(unzipped)
-for row in unzipped:
-    print(row)
+def primeFactors(n):
+    number = n
+    import math
+    prime_factors = []
+    while n % 2 == 0:
+        n = n / 2
+        prime_factors.append(2)
+
+    for i in range(3, number +1, 2):
+        while n % i == 0:
+            n = n / i
+            prime_factors.append(i)
+    return prime_factors
+
+if __name__ == '__main__':
+    n = 14
+    print(primeFactors(n))
