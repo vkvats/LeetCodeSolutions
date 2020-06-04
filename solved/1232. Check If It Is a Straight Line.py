@@ -25,6 +25,7 @@ def checkStraightLine(coordinates):
 
 # solution from leetcode
 """Can also use multiplication instead of division this would avoid division by zero problem """
+
 def checkStraightLineBetter(c)
     for i in range(2, len(c)):
         if ((c[i][1] - c[0][1]) * (c[1][0] - c[0][0]) != (c[1][1] - c[0][1]) * (c[i][0] - c[0][0])):

@@ -7,7 +7,8 @@ def maximumProduct(nums):
         a = max(abs(arr[0]), arr[-1])
         if a == abs(arr[0]):
             b = max(abs(arr[1]), arr[-1])
-            if b == abs(arr[1])
+            if b == abs(arr[1]):
+                pass
         c = max(abs(arr[2]), arr[-3])
         return a*b*c
 
