@@ -18,6 +18,20 @@ def judgeSquareSum(c):
             return True
     return False
 
+# Best solution from leetcode
+#https://en.wikipedia.org/wiki/Sum_of_two_squares_theorem
+def judgeSquareSum(self, c: int) -> bool:
+    i=2
+    while i*i < c:
+        count = 0
+        if c%i == 0:
+            while c%i == 0:
+                count+=1
+                c = c//i
+            if i%4 == 3 and count%2!=0:
+                return False
+        i+=1
+    return c%4!=3
 
 if __name__ == '__main__':
     c = 6
