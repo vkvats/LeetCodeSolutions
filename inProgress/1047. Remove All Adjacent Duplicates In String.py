@@ -1,4 +1,5 @@
 def removeDuplicates(S):
+    """using string method"""
     flag = True
     def duplicateCheck(string):
         for i in range(1, len(string)):
