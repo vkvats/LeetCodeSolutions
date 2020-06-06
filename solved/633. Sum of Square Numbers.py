@@ -1,38 +1,38 @@
-### first solution: works fine on leetcode.
-
-
-
-
-### second solution: This solution exceeds the memory limit on leetcode but works fine 
-
-class Solution:
-    def judgeSquareSum(self, c: int) -> bool:
-        
-        first = [x for x in range(c+1)]
-        second = [x for x in range(c, -1, -1)]
-        pairs = zip(first, second)
-        for first, second in pairs:
-            if self.perfectSquare(first) is True and self.perfectSquare(second) is True:
+def judgeSquareSumX(c):
+    """time limit exceeded"""
+    import math
+    square_root = int(math.sqrt(c))
+    for a in range(0, square_root +1):
+        for b in range(0, square_root + 1):
+            if int(a**2) + int(b**2) == c:
+                # print(a,b)
                 return True
-        return False
+    return False
 
-
-    def perfectSquare(self, num):
-        if num in (0, 1):
+def judgeSquareSum(c):
+    import math
+    square_root = int(math.sqrt(c))
+    for a in range(square_root + 1):
+        b = math.sqrt(c-a*a)
+        if int(b)*1 == b*1:
             return True
-        if num < 0:
-            return False
-        if num % 10 not in (1, 4, 5, 6, 9, 0):
-            return False
-        # now will do binary search.
-        start = 1
-        end = num
-        while start <= end:
-            mid_num = start + (end - start) // 2
-            if mid_num * mid_num == num:
-                return True
-            elif mid_num * mid_num > num:
-                end = mid_num - 1
-            elif mid_num * mid_num < num:
-                start = mid_num + 1
-        return False
+    return False
+
+# Best solution from leetcode
+#https://en.wikipedia.org/wiki/Sum_of_two_squares_theorem
+def judgeSquareSum(self, c: int) -> bool:
+    i=2
+    while i*i < c:
+        count = 0
+        if c%i == 0:
+            while c%i == 0:
+                count+=1
+                c = c//i
+            if i%4 == 3 and count%2!=0:
+                return False
+        i+=1
+    return c%4!=3
+
+if __name__ == '__main__':
+    c = 6
+    print(judgeSquareSum(c))
