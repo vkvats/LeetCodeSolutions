@@ -15,7 +15,7 @@ def backspaceCompare(S, T):
     return S, T, S==T
 
 # solution from leetcode
-def backspaceCompare3(S, T):
+def backspaceCompareStack(S, T):
     def finder(L):
         ans = []
         for i in L:
