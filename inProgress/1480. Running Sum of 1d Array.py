@@ -12,6 +12,10 @@ def runningSumBest(nums):
         nums[i] += nums[i - 1]
     return nums
 
+import itertools
+def runningSum2(nums):
+    return itertools.accumulate(nums)
+
 
 if __name__ == '__main__':
     # nums= [1,2,3,4]
