@@ -1,4 +1,5 @@
 def findContentChildren(g, s):
+    """Couldn't pass all cases"""
     g.sort()
     s.sort()
     satisfied = 0
@@ -15,6 +16,7 @@ def findContentChildren(g, s):
                     break
     return satisfied
 
+# solution from discussion
 def findContentChildren1(g, s):
     g.sort()
     s.sort()
@@ -53,6 +55,23 @@ def findContentChildren2(g, s):
 
         # Finally return the gratified children count!!!
     return children
+
+# best solution from leetcode
+def findContentChildrenFast(g, s):
+    g.sort()
+    s.sort()
+    ans = 0
+    i = 0
+    for j in g:
+
+        while (i < len(s) and s[i] < j):
+            i += 1
+        if (i >= len(s)):
+            break
+        ans += 1
+        i += 1
+    return ans
+
 
 if __name__ == '__main__':
     g = [1,2,3]
