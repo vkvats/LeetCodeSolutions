@@ -18,7 +18,7 @@ class Solution:
 
 
 
-# solution DFS
+# solution DFS (recursion)
 class SolutionDFS:
     def rangeSumBST(self, root, L: int, R: int) -> int:
         def dfs(node):
@@ -35,7 +35,7 @@ class SolutionDFS:
 
 
 
-## solution from leetcode
+## solution from leetcode ( RECURSIVE)
 class SolutionFast:
     def rangeSumBST(self, root: , L: int, R: int) -> int:
         while root:
