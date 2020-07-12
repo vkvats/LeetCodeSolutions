@@ -5,6 +5,7 @@ class TreeNode:
         self.val = val
         self.left = left
         self.right = right
+
 class Solution:
     def isUnivalTree(self, root: TreeNode) -> bool:
         if not root:
@@ -24,7 +25,7 @@ class Solution:
 
 # fastest solution from leetcode (Recursive)
 class Solution:
-    def isUnivalTree(self, root: ) -> bool:
+    def isUnivalTree(self, root) -> bool:
         if not root:
             return False
         target = root.val
