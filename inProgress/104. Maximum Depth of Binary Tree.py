@@ -6,7 +6,7 @@ class TreeNode:
         self.left = left
         self.right = right
 
-class Solution:
+class Solution: # iterative solution
     def maxDepth(self, root: TreeNode) -> int:
         if not root:
             return 0
@@ -21,10 +21,13 @@ class Solution:
         children = []
         while array:
             node = array.pop()
+            # instead of checking n-ary children, this time we
+            # need to explicitly check for left child and right child.
             if node.left:
                 children.append(node.left)
             if node.right:
                 children.append(node.right)
+        return children, level
 
 # from leetcode (recursive)
 class SolutionFast1:
@@ -42,8 +45,8 @@ class SolutionFast1:
 class SolutionFast2:
     def maxDepth(self, root: TreeNode) -> int:
         if root == None:
-            return 0;
-        return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right));
+            return 0
+        return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
 
 # top-down and bottom up approach
 class Solution:

@@ -13,10 +13,13 @@ class Solution:
         left_leaves = []
         while stack:
             node = stack.pop()
+            # add left node
             if node.left:
                 stack.append(node.left)
+                # visit
                 if not node.left.left and not node.left.right:
                     left_leaves.append(node.left.val)
+            # add right node.
             if node.right:
                 stack.append(node.right)
         return sum(left_leaves)
@@ -31,11 +34,13 @@ class SolutionFast1:
         return self.total
 
     def dfs(self, root):
+        # base case
         if not root: return
+        # visit
         if root.left:
             if not root.left.left and not root.left.right:
                 self.total += root.left.val
-
+        # recurssive call.
         self.dfs(root.left)
         self.dfs(root.right)
 

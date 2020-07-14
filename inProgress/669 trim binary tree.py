@@ -9,6 +9,7 @@ class Solution:
     def trimBST(self, root: TreeNode, L: int, R: int) -> TreeNode:
         def dfs(node):
             if node is None: return None
+            # traversing using properties of tree
             if node.val < L: return dfs(node.right)
             elif node.val > R: return dfs(node.left)
             node.left = dfs(node.left)

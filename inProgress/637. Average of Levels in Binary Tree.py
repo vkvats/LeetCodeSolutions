@@ -29,16 +29,20 @@ class Solution:
 
         return children, output
 
-# solution from leetcode
+# solution from leetcode (Iterative)
 class SolutionFast1:
-    def averageOfLevels(self, root: TreeNode) -> List[float]:
+    def averageOfLevels(self, root: TreeNode) -> [float]:
         if not root:
             return root
         que = [root]
         ans = []
         while que:
+            # Taking average of the level
             ans.append(sum([i.val for i in que])/len(que))
             semi = []
+            # pop each element of the quere
+            # this will ensure that at any given moment
+            # all elements of the que is of same level.
             while que:
                 temp = que.pop()
                 if temp.left:

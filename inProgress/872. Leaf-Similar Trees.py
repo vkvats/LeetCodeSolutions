@@ -47,27 +47,24 @@ class SolutionFast1:
         if len(leaves1) != len(leaves2):
             return False
 
+# this whole chunk of comparing can be done with tuple comparison
         i = 0
         while i < len(leaves1):
 
             if leaves1[i] != leaves2[i]:
                 return False
-
             i += 1
-
         return True
 
     def recv(self, root, leaves):
-
+        # base case
         if root == None:
             return
-
-        # Leaf
+        # visit
         if (root.left == None) and (root.right == None):
             leaves.append(root.val)
-
         else:
-
+            # recursive call
             self.recv(root.left, leaves)
             self.recv(root.right, leaves)
 
@@ -77,9 +74,12 @@ class SolutionRecuur:
         def dfs(root):
             res = []
             def _dfs(node):
+                # base case
                 if not node: return
+                # visit
                 if not node.left and not node.right:
                     res.append(node.val)
+                # recussive call with next node.
                 _dfs(node.left)
                 _dfs(node.right)
             _dfs(root)

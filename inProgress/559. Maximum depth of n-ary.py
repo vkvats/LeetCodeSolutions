@@ -31,12 +31,9 @@ class Solution:
 class SolutionFast:
     def maxDepth(self, root: 'Node') -> int:
         if not root: return 0
-        stack = []
         stack = [root]
-        result = []
         count = 0
         while stack:
-            level = []
             for i in range(len(stack)):
                 node = stack.pop(0)
                 if node:
@@ -56,28 +53,16 @@ class SolutionRecursive:
         def dfs(n):
             if n.children is None:
                 return 1
+            # this will keep track of max depth in DFS
             mdepth = 0
             for c in n.children:
                 depth = 1 + dfs(c)
                 mdepth = max(mdepth, depth)
             return mdepth
-
+# we need to add 1 before final anser from insider function as
+        # the function dfs() do not count the root level.
         return 1 + dfs(root)
 
-# solution from leetcode iterative
-class SolutionIterative2:
-    def maxDepth(self, root: 'Node') -> int:
-        if not root:
-            return 0
-        stack = [root]
-        depth = 0
-        while stack:
-            depth += 1
-            tem = []
-            for i in stack:
-                tem += i.children
-            stack = tem
-        return depth
 
 # Solution from leetcode (recursive)
 class SolutionRecurr2:

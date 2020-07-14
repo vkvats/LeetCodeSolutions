@@ -11,6 +11,7 @@ class Solution:
     def helper(self, root, vals, ans):
         if not root:
             return
+        # in-order traversal and also maintaining the min difference at index 0 in ans.
         self.helper(root.left, vals, ans)
         if vals:
             ans[0] = min(ans[0], root.val - vals[-1])
@@ -53,12 +54,16 @@ class Solution:
             if not root:
                 return
             nonlocal ans, prev
+            # in-order traversal
+            # left node call
             helper(root.left)
+            # visit
             if not prev:
                 prev = root
             else:
                 ans = min(ans, root.val - prev.val)
                 prev = root
+            # right node call
             helper(root.right)
 
         ans = float('inf')

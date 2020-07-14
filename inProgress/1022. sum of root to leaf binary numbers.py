@@ -49,9 +49,14 @@ class SolutionDiscussion:
         while stack:
             node, temp = stack.pop()
             if not node.left and not node.right:
+                # this is only adding the last digit of the binary, This doesn't require
+                # converting the binary into decimal as last digit has same value as binary value.
                 self.total += temp
 
             if node.right:
+                # converting binary into decimal with temp*2
+                # every time the node is not leaf node, then temp value is multiplied with
+                # 2, so with each level, multiplication with 2 takes place.
                 stack.append((node.right, temp*2+node.right.val))
             if node.left:
                 stack.append((node.left, temp*2+node.left.val))
@@ -62,6 +67,7 @@ class SolutionFast1:
     def sumRootToLeaf(self, root, val=0):
         if not root:
             return 0
+        # this is also converting binary into decimal at each level.
         val = val * 2 + root.val
         if root.left == root.right:
             return val

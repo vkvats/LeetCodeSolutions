@@ -1,4 +1,9 @@
 # Definition for a binary tree node.
+"""
+Another approach could be, if we do in-order traversal, keep track of last node as
+well and find out the difference and append to list. then return the min value of
+that list.
+"""
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -9,16 +14,20 @@ class Solution:
     def getMinimumDifference(self, root: TreeNode) -> int:
         node_vals = []
         stack = [root]
-        while stack:
+        while stack: # O(n)
             node = stack.pop()
             node_vals.append(node.val)
             if node.left:
                 stack.append(node.left)
             if node.right:
                 stack.append(node.right)
-        node_vals.sort()
+        # after collecting all values of nodes, sort it and find the
+        # difference of the two consecutive values, the min value will be
+        # the required value.
+        node_vals.sort() # O(log(n))
+        """ we can avoid sorting step if we traverse in-order."""
         d = []
-        for i in range(0, len(node_vals) - 1):
+        for i in range(0, len(node_vals) - 1): # O(n)
             diff = abs(node_vals[i] - node_vals[i + 1])
             d.append(diff)
         return min(d)
@@ -26,9 +35,13 @@ class Solution:
 # solution from leetcode (FAST)
 class SolutionFast1:
     def getMinimumDifference(self, root: TreeNode) -> int:
-
+        """
+        This is doing the same thing, collecting all  nodes, in order and
+        then finding the difference with next element.
+        """
         def dfs(node):
             if root:
+                # in-order traversal to get node values in order.
                 if node.left: dfs(node.left)
                 final.append(node.val)
                 if node.right: dfs(node.right)
@@ -36,6 +49,8 @@ class SolutionFast1:
         final = []
         dfs(root)
         return min(final[i] - final[i - 1] for i in range(1, len(final)))
+
+
 # solution from leetcode (recursive)
 class SolutionRecrsive:
     def getMinimumDifference(self, root: TreeNode) -> int:
@@ -46,7 +61,7 @@ class SolutionRecrsive:
         def traverse(root: TreeNode) -> None:
             if not root:
                 return None
-
+            # in-order traversal, to get node values in order.
             traverse(root.left)
 
             if self.prev is not None:
@@ -59,6 +74,7 @@ class SolutionRecrsive:
         return self.res
 
 # iterative solution
+import math
 class Solution:
     def getMinimumDifference(self, root: TreeNode) -> int:
 
@@ -100,6 +116,7 @@ class Solution4:
         result = float('inf')
         while True:
             while root:
+                # in-order traversal
                 stack.append(root)
                 root = root.left
             if not stack:
