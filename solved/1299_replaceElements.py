@@ -4,6 +4,19 @@ def replaceElements(arr):
         arr[i] = max(arr[i+1:])
     arr[-1] = -1
     return arr
+
+# My new solution
+class Solution:
+    def replaceElements(self, arr: [int]) -> [int]:
+        largest = arr[-1]
+        arr[-1] = -1
+        for i in range(len(arr) -2, -1, -1):
+            val = arr[i]
+            arr[i] = largest
+            if val > largest:
+                largest = val
+        return arr
+
 # from discussion
 def replaceElementsFAST(arr):
     max_so_far = -1
@@ -15,4 +28,4 @@ def replaceElementsFAST(arr):
 
 if __name__ == '__main__':
     arr = [17, 18, 5, 4, 6, 1]
-    print(replaceElements(arr))
+    print(Solution().replaceElements(arr))
