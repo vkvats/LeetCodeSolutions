@@ -19,6 +19,27 @@ class Solution:
                 return False
         return True
 
+# Solution from leetcode
+class Solution:
+    def isPalindrome(self, head: ListNode) -> bool:
+        # fast=slow=ListNode(0)
+        fast = slow = head
+        stack = []
+        # print("")
+
+        while fast and fast.next:
+            stack.append(slow.val)
+            slow = slow.next
+            fast = fast.next.next
+        if fast:
+            slow = slow.next
+        while slow:
+            top = stack.pop()
+            if top != slow.val:
+                return False
+            slow = slow.next
+        return True
+
 
 values = [1,2] # [1,1,2,3,3]
 linked_list = ListNode(values[0])

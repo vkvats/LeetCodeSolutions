@@ -21,9 +21,14 @@ def kidsWithCandiesNumpy(candies, extracandies):
     with_extracandy = with_extracandy >=max_candy
     return with_extracandy
 
-# faster implementation using list comprehension
+# using list comprehension
 def kidsWithCandiesListComprehension(candies, extraCandies):
     return [candy + extraCandies >= max(candies) for candy in candies]
+
+# using MAP function:
+def using_map(candies, extraCandies):
+    max_val = max(candies)
+    return map(lambda x: x + extraCandies >= max_val, candies)
 
 if __name__ == '__main__':
     # candies = [2, 3, 5, 1, 3]
