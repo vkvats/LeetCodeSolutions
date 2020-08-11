@@ -10,13 +10,29 @@ def smallerNumbersThanCurrent(nums):
         output.append(count)
     return output
 
-# list comprehension
-def smallerNumbersThanCurrentListComprehension(nums):
-    count = 0
-    return [count + 1 for num2 for num in nums]
+# using filter function
+def using_filter(nums):
+    output = []
+    for num in nums:
+        val = filter(lambda x: x < num, nums)
+        output.append(len([v for v in val]))
+    return output
+
+# using dictionary and enumerate
+class Solution:
+    def smallerNumbersThanCurrent(self, nums: [int]) -> [int]:
+        indices = {}
+        for idx, num in enumerate(sorted(nums)): # O(n.log n) + O(n)
+            # set the default value to the first index encountered
+            # if key in already present, it does nothing.
+            indices.setdefault(num,idx)
+            # # this is same as doing
+            # if num not in count:
+            #     count[num] = idx
+        return [indices[num] for num in nums]
 
 
 if __name__ == '__main__':
-    # nums = [8, 1, 2, 2, 3]
-    nums = [7, 7, 7, 7]
-    print(smallerNumbersThanCurrentListComprehension(nums))
+    nums = [8, 1, 2, 2, 3]
+    # nums = [7, 7, 7, 7]
+    print(using_filter(nums))

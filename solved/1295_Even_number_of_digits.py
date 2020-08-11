@@ -1,6 +1,14 @@
-def findNumbers(nums):
-    count_list = [1 for num in nums if len(str(num)) % 2 ==0]
-    return sum(count_list)
+# Without using string conversion
+def findNumbers(self, nums: [int]) -> int:
+    total_count = 0
+    for num in nums:
+        count = 0
+        while num >= 1:
+            num = num // 10
+            count += 1
+        if count % 2 == 0:
+            total_count += 1
+    return total_count
 
 # same work in one line
 def findNumbers(nums):

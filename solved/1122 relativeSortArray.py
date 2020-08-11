@@ -1,3 +1,15 @@
+# new solution
+class Solution:
+    def relativeSortArray(self, arr1: [int], arr2: [int]) -> [int]:
+        res, cnt = [], Counter(arr1)
+
+        for i in arr2:
+            res.extend([i] * cnt.pop(i))
+
+        res.extend(sorted(cnt.elements()))
+        return res
+
+
 # first thought
 def relativeSortArray(arr1, arr2):
     frequency = {}

@@ -1,3 +1,13 @@
+# new solution using accumulate
+from itertools import accumulate
+class Solution:
+    def minStartValue(self, nums: [int]) -> int:
+        run_sum = accumulate(nums)
+        min_val = min(run_sum)
+        return 1- min_val if min_val < 0 else 1
+
+
+
 def minStartValue(nums):
     start_value = []
     total_sum = 0
@@ -31,4 +41,4 @@ if __name__ == '__main__':
     nums = [-3, 2, -3, 4, 2]
     # nums = [1, 2]
     # nums = [1, -2, -3]
-    print(minStartValue2(nums))
+    print(Solution().minStartValue(nums))

@@ -1,3 +1,18 @@
+# new solution
+# using while loop # While loop seems to work faster than for loop
+# tuple unpacking is faster than accessing an array twice.
+class Solution:
+    def decompressRLElist(self, nums: [int]) -> [int]:
+        n = len(nums)
+        decom = []
+        i = 0
+        while i < n: # while loop involves more operations than a for loop, making for loop faster.
+            f, v = nums[i:i+2] # tuple unpacking
+            decom.extend([v]*f) # extend method with array and []*f for repeating the value 'f' times
+            i += 2
+        return decom
+
+
 # Naive solution
 def decompressRLElist(nums):
     length = len(nums)

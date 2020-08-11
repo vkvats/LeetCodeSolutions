@@ -1,3 +1,14 @@
+# using double comparison in one line
+class Solution:
+    def busyStudent(self, startTime: [int], endTime: [int], queryTime: int) -> int:
+        count = 0
+        for i in range(len(startTime)): # we can also use zip here.
+            if startTime[i] <= queryTime <= endTime[i]: # we can write something like this as well.
+                count +=1
+        return count
+
+
+
 # first thought
 def busyStudent(startTime, endTime, queryTime):
     count = 0

@@ -1,3 +1,14 @@
+# new solution
+class Solution:
+    def oddCells(self, n: int, m: int, indices: [[int]]) -> int:
+        output = [[0]*m for _ in range(n) ]
+        for r,c in indices:
+            output[r][:] = [x+1 for x in output[r][:]]
+            # we can't access columns of list of list directly by slicing.
+            output[:][c] = [x+1 for x in output[:][c]]
+        return output
+
+
 # first thought
 def oddCells(n, m, indices):
     import numpy as np
@@ -10,8 +21,8 @@ def oddCells(n, m, indices):
 if __name__ == '__main__':
     # n = 2
     # m = 3
-    # indices = [[0, 1], [1, 1]]
+    indices = [[0, 1], [1, 1]]
     n = 2
-    m = 2
-    indices = [[1, 1], [0, 0]]
-    print(oddCells(n,m, indices))
+    m = 3
+    # indices = [[1, 1], [0, 0]]
+    print(Solution().oddCells(n, m, indices))

@@ -1,3 +1,18 @@
+# new solution
+class Solution:
+    def sumZero(self, n: int) -> [int]:
+        arr =[]
+        if n % 2 !=0:
+            arr.append(0)
+        for i in range(1, n//2 + 1):
+            arr.extend([-i, i])
+        return arr
+
+# from leetcode solution
+class Solutionf1:
+    def sumZero(self, n: int) -> [int]:
+        return (list(range(1 - n, n, 2)))
+
 # first thought
 def sumZero(n):
     arr =[]
@@ -15,8 +30,6 @@ def sumZero(n):
             num +=1
     return arr, sum(arr)
 
-# from dicussion
-"""Can think of adding 0 if n is even and then do the same """
 
 
 if __name__ == '__main__':

@@ -1,3 +1,28 @@
+# New solution using Dictionary
+from collections import defaultdict
+class Solution:
+    def minimumAbsDifference(self, arr: [int]) -> [[int]]:
+        arr.sort() # O(nlog(n))
+        min_diff = float('inf')
+        for i in range(1, len(arr)): # order N
+            diff = arr[i] - arr[i-1]
+            if diff < min_diff: min_diff = diff
+        output = defaultdict(list)
+        for i in range(1, len(arr)): # order N
+            diff = arr[i] - arr[i-1]
+            if diff == min_diff:
+                output[min_diff].append([arr[i-1], arr[i]])
+        return output[min_diff]
+
+# same solution in 3 lines
+class Solution:
+    def minimumAbsDifference(self, arr: List[int]) -> List[List[int]]:
+        arr.sort()
+        mn = min(b - a for a, b in zip(arr, arr[1:]))
+        return [[a, b] for a, b in zip(arr, arr[1:]) if b - a == mn]
+
+
+
 class Solution:
     def minimumAbsDifference(self, arr: [int]) -> [[int]]:
         arr.sort() # O(nlog(n))

@@ -1,3 +1,14 @@
+# new solution:
+class Solution:
+    def replaceElements(self, arr: [int]) -> [int]:
+        l = arr[-1]
+        arr[-1] = -1
+        for i in range(len(arr)-2, -1, -1):
+            val = arr[i]
+            arr[i] = l
+            if val > l: l = val
+        return arr
+
 # first thought
 def replaceElements(arr):
     for i in range(len(arr)-1):
@@ -6,16 +17,16 @@ def replaceElements(arr):
     return arr
 
 # My new solution
-class Solution:
-    def replaceElements(self, arr: [int]) -> [int]:
-        largest = arr[-1]
-        arr[-1] = -1
-        for i in range(len(arr) -2, -1, -1):
-            val = arr[i]
-            arr[i] = largest
-            if val > largest:
-                largest = val
-        return arr
+# class Solution:
+#     def replaceElements(self, arr: [int]) -> [int]:
+#         largest = arr[-1]
+#         arr[-1] = -1
+#         for i in range(len(arr) -2, -1, -1):
+#             val = arr[i]
+#             arr[i] = largest
+#             if val > largest:
+#                 largest = val
+#         return arr
 
 # from discussion
 def replaceElementsFAST(arr):

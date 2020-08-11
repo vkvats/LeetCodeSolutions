@@ -2,6 +2,17 @@
 Return a lucky integer in the array. If there are multiple lucky integers return the largest of them.
 If there is no lucky integer return -1."""
 
+# new solution
+# using Counter and For-Else
+from collections import Counter
+class Solution:
+    def findLucky(self, arr: [int]) -> int:
+        freq_dict = Counter(arr)
+        lucky = float('-inf')
+        for key, val in freq_dict.items():
+            if key == val and key > lucky: lucky = key
+        else: return lucky if lucky != float('-inf') else -1
+
 def findLucky(arr):
     freq_dict = {}
     lucky = []

@@ -7,6 +7,23 @@ def createTargetArray(nums, index):
         target.insert(num_index, num)
     return target
 
+class Solution:
+    def createTargetArray(self, nums: [int], index: [int]) -> [int]:
+        target = []
+        n = len(nums)
+        for i in range(n):
+            v,idx = nums[i], index[i]
+            target.insert(idx, v)
+        return target
+
+# using Zip ( not fast though)
+class Solution:
+    def createTargetArray(self, nums: List[int], index: List[int]) -> List[int]:
+        target = []
+        for i, v in zip(index, nums):
+            target.insert(i,v)
+        return target
+
 # from discussion
 def createTargetArrayLC(nums, index):
     target = []

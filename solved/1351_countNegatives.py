@@ -1,3 +1,14 @@
+# using list methods only
+
+class Solution:
+    def countNegatives(self, grid: [[int]]) -> int:
+        count = 0
+        for row in grid:
+            for val in row:
+                if val < 0: count += 1
+                else: break # this should give advantage in large matrix
+        return count
+
 # first thought
 def countNegatives(grid):
     import numpy as np

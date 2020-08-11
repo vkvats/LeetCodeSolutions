@@ -1,3 +1,15 @@
+# new solution
+class Solution:
+    def minTimeToVisitAllPoints(self, points: [[int]]) -> int:
+        t = 0
+        x1, y1 = points[0]
+        for x2, y2 in points[1:]:
+            diag = max(abs(x2 - x1), abs(y2 - y1))
+            t += diag
+            x1, y1 = x2, y2
+        return t
+
+
 # first thought
 def minTimeToVisitAllPoints(points):
     time = 0

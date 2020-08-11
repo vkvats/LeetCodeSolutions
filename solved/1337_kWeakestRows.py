@@ -1,3 +1,19 @@
+# New solution without using array
+class Solution:
+    def findTheDistanceValue(self, arr1: [int], arr2: [int], d: int) -> int:
+        count = 0
+        n = len(arr2)
+        for a1 in arr1:
+            tmp = 0
+            for a2 in arr2:
+                if abs(a1 - a2) > d:
+                    tmp += 1
+                else:
+                    break
+            if tmp == n: count += 1
+        return count
+
+
 # first thought: using dictionary to story count and then fetcing it as per sorted order but,
 # #two keys becomes same. so can't be done using dict.
 

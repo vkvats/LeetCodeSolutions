@@ -9,7 +9,10 @@ def arrayPairsum(nums):
 # from discussion using list comprehension
 def arrayPairsumLC(nums):
     nums = sorted(nums)
+    # to select the even indexed values
     min_vlaues = [min(nums[i], nums[i + 1]) for i, x in enumerate(nums) if i % 2 == 0]
+    # we can just do
+    # nums[0::2] # gives same result
     return sum(min_vlaues)
 
 if __name__ == '__main__':

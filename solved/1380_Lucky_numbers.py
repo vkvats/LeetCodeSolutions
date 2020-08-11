@@ -15,6 +15,10 @@ def luckyNumbers(matrix):
 # from discussion
 def luckyNumbersD(matrix):
     a = [min(arr) for arr in matrix]
+    # to get all columns in a tuple
+    # c = [val for val in zip(*matrix)] # zip unpacking
+    # c = map(list, zip(*matrix))
+    # c = [val for val in c]
     b = [max(arr) for arr in zip(*matrix)]
     # using zip(*arg) does the job of unzipping, in this case it will give colum values in tuples.
     return [i for i in a if i in b]
