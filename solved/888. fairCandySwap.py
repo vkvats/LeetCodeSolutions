@@ -1,11 +1,17 @@
 def fairCandySwap(A, B):
     sumAminB, B = (sum(A)-sum(B))/2, set(B)
-    """Writing one liner code isnot always faster, small operations should be separatd."""
+    """Writing one liner code is not always faster, small operations should be separatd."""
     return [[a,a-sumAminB] for a in set(A) if a-sumAminB in B ][0]
-    # for a in set(A):
-    #     for b in set(B):
-    #         if sumAminB == (a-b):
-    #             return [a,b]
+# same as above solution but this time, the list comprehension is not
+# doing complete executiong, which should save some time and make it faster
+
+class Solution:
+    def fairCandySwap(self, A: [int], B: [int]) -> [int]:
+        sumAminB, B = (sum(A)-sum(B))/2, set(B)
+        for a in set(A):
+            if a-sumAminB in B:
+                return [a,a-sumAminB]
+
 
 
 if __name__ == '__main__':

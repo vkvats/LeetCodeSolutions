@@ -8,7 +8,12 @@ def numJewelsInStones(J, S):
     return total_jweles
 
 def numJewelsInStonesBest(J, S):
-    return sum(count in J for count in S) # find the meaning
+    val = [count in J for count in S]
+    return sum(val) # find the meaning
+
+# using map function
+def numJewelsInStones(self, J, S):
+    return sum(map(S.count, J))
 
 
 if __name__ == '__main__':

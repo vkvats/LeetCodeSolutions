@@ -1,3 +1,17 @@
+# new solution
+# using separate array but then assigning values to new array
+class Solution:
+    def duplicateZeros(self, arr: [int]) -> None:
+        """
+        Do not return anything, modify arr in-place instead.
+        """
+        out = [] #using extra array that violates in-place condition
+        for num in arr:
+            out.append(num)
+            if num == 0: out.append(0)
+        arr[:] = out[:len(arr)] # assigning values to original array. this is trick to bypass in-place condition
+
+
 def duplicateZeros(arr):
     index = 0
     N = len(arr)

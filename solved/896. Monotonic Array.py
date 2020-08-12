@@ -1,3 +1,25 @@
+# new solution
+# in one pass
+class Solution:
+    def isMonotonic(self, A: [int]) -> bool:
+        n = len(A)
+        if n == 1: return True
+        first, second = 0,1
+        while A[first] == A[second]: # first break the condition of equality
+            second += 1
+            if second == n: return True # if all elements are equal return True
+        first_num, second_num = A[first], A[second]
+        if first_num > second_num: # decreasing Condition should be applied
+            for i in range(second, n):
+                if A[i] > A[i-1]: return False
+            else: return True
+        elif first_num < second_num: # increasing Condition should be applied
+            for i in range(second, n):
+                if A[i] < A[i-1]: return False
+            else: return True
+
+
+
 def isMonotonic(A):
     nonDecreasing = True
     nonIncreasing = True

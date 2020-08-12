@@ -1,3 +1,9 @@
+# using group by function
+from itertools import groupby
+class Solution:
+    def findMaxConsecutiveOnes(self, nums: [int]) -> int:
+        return max([len(list(g)) for k, g in groupby(nums)])
+
 def findMaxConsecutiveOnes(nums):
     counter = 0
     max_count = 0
@@ -12,7 +18,7 @@ def findMaxConsecutiveOnes(nums):
 
 # Two pointer solution
 
-class Solution:
+class Solutionf:
     def findMaxConsecutiveOnes(self, nums: [int]) -> int:
         length = -1
         i, j = 0, 0
