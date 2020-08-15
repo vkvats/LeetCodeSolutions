@@ -9,6 +9,7 @@ class Solution:
                     j += 1
                 else:
                     j += 1
+
     def second_method(self, nums, val):
         """When we encounter nums[i] = val we can swap the current element
          out with the last element and dispose the last one. This essentially
@@ -24,6 +25,8 @@ class Solution:
         return n
 
 # solution form leetcode
+# faster form of two pointer method
+
 class SolutionF1:
     def removeElement(self, nums: [int], val: int) -> int:
         store = 0

@@ -1,3 +1,26 @@
+# new method
+# using set and iterating to find repeated value
+class Solution:
+    def findErrorNums(self, nums: [int]) -> [int]:
+        n = len(nums)
+        repeated = set()
+        # r = [val if val in repeated else repeated.add(val) for val in nums]
+        for val in nums:
+            if val in repeated: r = val
+            else: repeated.add(val)
+        diff = int(n*(n+1)/2 - sum(nums))
+        return [r, r+diff]
+
+# using set to find the repeated value.
+class Solution:
+    def findErrorNums(self, nums: [int]) -> [int]:
+        n = len(nums)
+        nums_sum = sum(nums)
+        r = nums_sum - sum(set(nums))
+        diff = n * (n + 1) // 2 - nums_sum
+        return [r, r + diff]
+
+
 def findErrorNums(nums):
     n = len(nums)
     original_set = set(range(1, n+1))
@@ -21,4 +44,4 @@ def findErrorNums(nums):
 
 if __name__ == '__main__':
     nums = [1, 2, 2, 4]
-    print(findErrorNums(nums))
+    print(Solution().findErrorNums(nums))

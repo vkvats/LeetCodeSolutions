@@ -1,3 +1,11 @@
+# new solution
+# using counter and min(division of target words)
+class Solution:
+    def maxNumberOfBalloons(self, text: str) -> int:
+        count = Counter(text)
+        b = Counter("balloon")
+        return min(count[char]//b[char] for char in "balloon")
+
 def maxNumberOfBalloons(text):
     count = {}
     num_of_balloon =0

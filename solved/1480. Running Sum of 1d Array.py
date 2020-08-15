@@ -1,3 +1,11 @@
+# New Method
+# inplace
+class Solution:
+    def runningSum(self, nums: [int]) -> [int]:
+        for i in range(1, len(nums)):
+            nums[i] = nums[i] + nums[i-1]
+        return nums
+
 
 def runningsum(nums):
     output = []

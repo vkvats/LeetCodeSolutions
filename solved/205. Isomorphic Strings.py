@@ -1,3 +1,18 @@
+# new solution
+# Using ZIP (but slower than dictionary)
+class Solution:
+    def isIsomorphic(self, s: str, t: str) -> bool:
+        mapping = dict(zip(s,t))
+        mapping2 = dict(zip(t,s))
+        for c1, c2 in zip(s,t):
+            if mapping[c1] != c2 or mapping2[c2] != c1: return False
+        else: return True
+
+# Using ZIP in different manner
+def isIsomorphic(self, s, t):
+    """The length of both way zip should be same"""
+    return len(set(zip(s, t))) == len(set(s)) and len(set(zip(t, s))) == len(set(t))
+
 def isIsomorphic(s, t):
     mapping = {}
     for index in range(len(s)):

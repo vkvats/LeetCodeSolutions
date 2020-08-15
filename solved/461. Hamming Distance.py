@@ -1,4 +1,20 @@
+# New Method
+# using Bit Manipulation
 class Solution:
+    """
+    dong XOR will only keep the bits where either one of them is 1,
+    which will take care of the fact that the bits were different.
+    For counting value of 1, we take bit wise AND of X with X-1
+    """
+    def hammingDistance(self, x: int, y: int) -> int:
+        x_y = y ^ x
+        count = 0
+        while x_y != 0:
+            x_y = x_y & (x_y -1)
+            count += 1
+        return count
+
+class Solution1:
     def hammingDistance(self, x: int, y: int) -> int:
         bin_x = bin(x)[2:]
         bin_y = bin(y)[2:]

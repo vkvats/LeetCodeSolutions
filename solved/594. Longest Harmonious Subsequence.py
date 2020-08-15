@@ -8,15 +8,6 @@ class Solution:
                 output = max(output, v[i]+v[i-1])
         return output
 
-# Solution from leetcode
-class SolutionFast1:
-    def findLHS(self, nums: [int]) -> int:
-        c=collections.Counter(nums)
-        sum=0
-        for i in c:
-            if i+1 in c and c[i+1]+c[i]>sum:
-                sum=c[i+1]+c[i]
-        return sum
 
 
 if __name__ == '__main__':

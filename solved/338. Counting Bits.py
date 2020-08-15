@@ -1,3 +1,19 @@
+# New Method
+# bit manipulation
+class Solution:
+    def countBits(self, num: int) -> [int]:
+        output = []
+        for i in range(num + 1):
+            output.append(self.count_ones(i)) # f'{i:b}'.count('1')
+        return output
+
+    def count_ones(self, num):
+        count = 0
+        while num != 0:
+            num &= (num -1)
+            count += 1
+        return count
+
 class Solution:
     def countBits(self, num: int) -> List[int]:
         output = []

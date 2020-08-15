@@ -1,3 +1,11 @@
+# New Method
+# if the values have same count then it can be converted into target array
+    # two pointer(only works for unique valued array)
+from collections import Counter
+class Solution:
+    def canBeEqual(self, target: [int], arr: [int]) -> bool:
+        return Counter(target) == Counter(arr)
+
 def canBeEqual(target, arr):
     if len(target) != len(arr):
         return False
@@ -37,12 +45,12 @@ def canBeEqualBest2(target, arr):
 
 
 if __name__ == '__main__':
-    # target = [1, 2, 3, 4]
-    # arr = [2, 4, 1, 3]
+    target = [1, 2, 3, 4]
+    arr = [2, 4, 1, 3]
     # target = [7]
     # arr = [7]
     # target = [1, 12]
     # arr = [12, 1]
-    target = [937,396,309,316,278,305,937,563,385,816,333,523,874,47,281,984,431,692]
-    arr = [937,385,816,937,309,523,281,278,316,396,984,431,47,333,692,874,563,305]
-    print(canBeEqual(target, arr))
+    # target = [937,396,309,316,278,305,937,563,385,816,333,523,874,47,281,984,431,692]
+    # arr = [937,385,816,937,309,523,281,278,316,396,984,431,47,333,692,874,563,305]
+    print(Solution().canBeEqual(target, arr))

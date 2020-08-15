@@ -1,3 +1,17 @@
+# new method
+# in order n
+class Solution:
+    def maxProduct(self, nums: List[int]) -> int:
+        l= s = float('-inf')
+        for num in nums:
+            if num >= l:
+                s = l
+                l = num
+            elif num > s:
+                s = num
+        return (l-1)*(s-1)
+
+# this is in order nlog n
 def maxProduct(nums):
     nums.sort()
     a,b = nums[-2:]

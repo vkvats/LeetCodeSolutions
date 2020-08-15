@@ -1,4 +1,24 @@
-class Solution:
+# new Method
+# using bit manipulation
+class Solution(object):
+    def findComplement(self, num):
+        i = 1
+        """ 
+        This method inverts using XOR bit wise, 
+        i shifts to each position, like multiplying by 2**i
+        """
+        while num >= i:
+            num ^= i
+            i <<= 1
+        return num
+
+# method 2
+# We can also flip num first (including the leading zeros)
+# using ~num and then get the last L bits by & 11...1 (L ones).
+    def findComplement(self, num):
+        return ~num & ((1 << num.bit_length()) - 1)
+
+class Solutionf:
     def findComplement(self, num: int) -> int:
         binary = bin(num)[2:]
         flipped = ""
@@ -39,3 +59,7 @@ class SolutionF2:
             mask = mask | 1
 
         return ~num & mask
+
+if __name__ == '__main__':
+    n = 5
+    print(Solution().findComplement(n))

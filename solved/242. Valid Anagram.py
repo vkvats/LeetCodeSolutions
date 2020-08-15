@@ -1,3 +1,12 @@
+# new method
+from collections import Counter
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        hashS = Counter(s)
+        hashT = Counter(t)
+        return True if hashS == hashT else False
+
+
 def isAnagram(s,t):
     listS = list(s)
     for alpha in t:

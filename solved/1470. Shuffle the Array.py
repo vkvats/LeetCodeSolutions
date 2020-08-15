@@ -1,3 +1,14 @@
+# New method
+# using ZIP function
+class Solution:
+    def shuffle(self, nums: List[int], n: int) -> List[int]:
+        output = []
+        for i,j in zip(nums[:n],nums[n:]):
+            output += [i,j]
+        return output
+
+
+
 def shuffle(nums, n):
     output = []
     for index in range(n):

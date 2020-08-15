@@ -1,3 +1,15 @@
+# New Method
+# Bit manipulation
+class Solution:
+    def missingNumber(self, nums: [int]) -> int:
+        # using Bit manipulation
+        [nums.append(n) for n in range(len(nums)+1)]
+        bit = nums[0]
+        for num in nums[1:]:
+            bit ^= num
+        return bit
+
+
 def missingNumber(nums):
     nums_set = set(nums)
     actual_set = set(range(len(nums)+1))

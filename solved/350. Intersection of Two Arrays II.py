@@ -1,3 +1,10 @@
+# New solution
+from collections import Counter
+def intersect(self, nums1, nums2):
+    a, b = map(Counter, (nums1, nums2))
+    return list((a & b).elements())
+
+
 def intersect(nums1, nums2):
     count1 = {}
     count2 = {}

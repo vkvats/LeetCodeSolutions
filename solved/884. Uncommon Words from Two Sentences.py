@@ -3,10 +3,6 @@ def uncommonFromSentences(A, B):
     output = []
     for word in A.split(" "):
         freq[word] = freq.get(word, 0) +1
-    # for key, value in freq.items():
-    #     if value ==1:
-    #         output.append(key)
-    # freq.clear()
     for word in B.split(" "):
         freq[word] = freq.get(word, 0) + 1
     for key, value in freq.items():

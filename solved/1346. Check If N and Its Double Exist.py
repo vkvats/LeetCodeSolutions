@@ -1,5 +1,25 @@
+# New method
+# using set() for visited
 class Solution:
-    def checkIfExist(self, arr: List[int]) -> bool:
+    def checkIfExist(self, arr: [int]) -> bool:
+        visited = set()
+        for num in arr:
+            if 2 * num in visited or num / 2 in visited: return True
+            visited.add(num)
+        return False
+
+# Using Hashma
+from collections import Counter
+class Solution:
+    def checkIfExist(self, arr: [int]) -> bool:
+        freq = Counter(arr)
+        for num in arr:
+            if freq[2*num] and num != 0: return True
+            elif freq[0] >= 2 and num == 0: return True
+        return False
+
+class Solution:
+    def checkIfExist(self, arr: [int]) -> bool:
         twice_nums = [2*num for num in arr]
         if 0 in arr:
             zero_count = arr.count(0)

@@ -1,3 +1,13 @@
+# new Method
+# calculation value while iterating
+class Solution:
+    def getDecimalValue(self, head: ListNode) -> int:
+        output = 0
+        while head:
+            # this increase the value of output by 2 at each step
+            output = 2 * output + head.val
+            head = head.next
+        return output
 
 class ListNode:
     def __init__(self, x):

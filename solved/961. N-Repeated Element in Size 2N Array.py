@@ -1,3 +1,23 @@
+# new solution
+# using hashing
+class Solution:
+    def repeatedNTimes(self, A: [int]) -> int:
+        count = set()
+        for num in A:
+            # as per question, only one number is repeated N times
+            # rest of the numbers are unique.
+            if num in count: return num
+            else: count.add(num)
+
+# using random sampling
+import random
+def repeatedNTimes(self, A):
+    while 1:
+        # take out 2 samples from array, if they are same, return them
+        s = random.sample(A, 2)
+        if s[0] == s[1]:
+            return s[0]
+
 def repeatedNTimes(A):
     freq = {}
     for num in A:
@@ -11,6 +31,7 @@ def repeatedNTimesCounter(A):
     from collections import Counter
     freq = Counter(A)
     return freq.most_common()
+
 # best solution from leetcode
 def repeatedNTimesBest(A):
     for k in range(1, 3):

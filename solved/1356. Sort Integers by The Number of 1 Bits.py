@@ -1,3 +1,30 @@
+# new Method
+# using bit manipulation
+from collections import defaultdict
+class Solution:
+
+    def sortByBits1(self, arr: [int]) -> [int]:
+        arr.sort()
+        return sorted(arr, key=lambda x: self.count_one(x))
+
+
+    def sortByBits(self, arr: [int]) -> [int]:
+        one_count = defaultdict(list)
+        for num in sorted(arr):
+            one_count[self.count_one(num)].append(num)
+        output = []
+        for i in sorted(one_count.keys()):
+            output.extend(one_count[i])
+        return output
+
+    def count_one(self, n):
+        count = 0
+        while n != 0:
+            count += 1
+            n = n & (n - 1)
+        return count
+
+
 
 def sortByBits(arr):
     from collections import defaultdict
