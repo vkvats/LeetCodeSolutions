@@ -1,4 +1,24 @@
+# new Method
+# Mathematic method to find sum of digits using divmod()
 class Solution:
+    def countLargestGroup(self, n: int) -> int:
+        count = {}
+        max_count = -1
+        for num in range(1, n+1):
+            digit_sum = 0
+            while num > 0:
+                num, mod = divmod(num, 10)
+                digit_sum += mod
+            count[digit_sum] = count.get(digit_sum, 0) + 1
+            if count[digit_sum] > max_count:
+                max_count = count[digit_sum]
+        return sum([1 for value in count.values() if value == max_count])
+
+if __name__ == '__main__':
+    n = 13
+    print(Solution().countLargestGroup(n))
+
+class Solution1:
     def countLargestGroup(self, n: int) -> int:
         count = {}
         for num in range(1, n+1):
