@@ -13,7 +13,7 @@ class Solution:
 # merging two arrays to make a sorted array
 
 class SolutionM2:
-    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+    def findMedianSortedArrays(self, nums1: [int], nums2: [int]) -> float:
         new_arr = self.merge(nums1, nums2)
         print(new_arr)
         n = len(new_arr)

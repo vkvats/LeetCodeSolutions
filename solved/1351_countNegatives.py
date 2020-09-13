@@ -1,6 +1,27 @@
+# New method
+# using binary search
+class Solution:
+    def countNegatives(self, grid: [[int]]) -> int:
+        count = 0
+        if not grid: return count
+        for g in grid:
+            # binary search in grid
+            lo, hi = 0, len(g)
+            while lo < hi:
+                mid = (lo + hi) // 2
+                if g[mid] >= 0:
+                    lo = mid + 1
+                else:
+                    hi = mid
+            if lo != len(g):
+                count += len(g) - lo
+        return count
+
+
+
 # using list methods only
 
-class Solution:
+class Solution1:
     def countNegatives(self, grid: [[int]]) -> int:
         count = 0
         for row in grid:
@@ -24,4 +45,4 @@ if __name__ == '__main__':
     # grid = [[4, 3, 2, -1], [3, 2, 1, -1], [1, 1, -1, -2], [-1, -1, -2, -3]]
     # grid = [[3, 2], [1, 0]]
     grid = [[1, -1], [-1, -1]]
-    print(countNegatives(grid))
+    print(Solution().countNegatives(grid))

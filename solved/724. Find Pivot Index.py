@@ -8,7 +8,8 @@ class SolutionMethod1:
                 return idx
             left_sum += n
         return -1
-#Dolution from leetcode
+
+# Solution from leetcode (same as above)
 class SolutionF1:
     def pivotIndex(self, nums: [int]) -> int:
         left , right = 0, sum(nums)

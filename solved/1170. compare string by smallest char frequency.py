@@ -19,7 +19,7 @@ class Solution:
 
 
 # Old solution
-class Solution:
+class Solution0:
     def numSmallerByFrequency(self, queries: [str], words: [str]) -> [int]:
         words_f = []
         for w in words:

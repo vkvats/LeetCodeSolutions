@@ -1,3 +1,19 @@
+# New Method
+# Binary search
+class Solution:
+    def mySqrt(self, x: int) -> int:
+    ## binary search
+        if x == 1: return 1
+        lo, hi = 1, x
+        while lo < hi:
+            mid = (lo + hi)//2
+            if mid*mid == x: return mid
+            elif mid*mid > x:
+                hi = mid
+            elif mid*mid < x:
+                lo = mid + 1
+        return lo-1
+
 def mysqrt( x):
     if x < 2:
         return x

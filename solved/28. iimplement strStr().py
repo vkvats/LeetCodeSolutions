@@ -1,3 +1,14 @@
+# New Method
+# using str.startswith()
+class Solution:
+    def strStr(self, haystack: str, needle: str) -> int:
+        if not haystack and not needle: return 0
+        n = len(needle)
+        for i in range(len(haystack)):
+            if haystack[i:].startswith(needle): return i
+        else: return -1
+
+
 class Solution:
     def strStr(self, haystack: str, needle: str) -> int:
         try:

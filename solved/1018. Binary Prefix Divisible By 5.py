@@ -1,6 +1,15 @@
-# My solution
+# New method
 class Solution:
-    def prefixesDivBy5(self, A: List[int]) -> List[bool]:
+    def prefixesDivBy5(self, A):
+        for i in range(1, len(A)):
+            A[i] += A[i - 1] * 2
+        return [a % 5 == 0 for a in A]
+
+
+print(Solution().prefixesDivBy5([0,1,1]))
+# My solution
+class Solution1:
+    def prefixesDivBy5(self, A: [int]) -> [bool]:
         output = []
         str_A = [str(n) for n in A]
         step = 1
@@ -19,7 +28,7 @@ class Solution:
 
 # Solution from leetcode
 class SolutionF1:
-    def prefixesDivBy5(self, A: List[int]) -> List[bool]:
+    def prefixesDivBy5(self, A: [int]) -> [bool]:
         def nums(bits):
             curr = 0
             for bit in bits:
@@ -30,7 +39,7 @@ class SolutionF1:
 
 # Solution from leetcode
 class SolutionF2:
-    def prefixesDivBy5(self, A: List[int]) -> List[bool]:
+    def prefixesDivBy5(self, A: [int]) -> [bool]:
         res, accu = [not A[0]], A[0]
         for i in range(1, len(A)):
             accu = ((accu << 1) | A[i]) % 5
@@ -39,7 +48,7 @@ class SolutionF2:
 
 # Solution from leetcode
 class SolutionF3:
-    def prefixesDivBy5(self, A: List[int]) -> List[bool]:
+    def prefixesDivBy5(self, A: [int]) -> [bool]:
         def yielder():
             n = 0
             for x in A:

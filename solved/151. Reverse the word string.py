@@ -1,4 +1,13 @@
+# New method
 class Solution:
+    def reverseWords(self, s: str) -> str:
+        words = s.split()
+        return (" ").join(w.strip() for w in words[::-1])
+
+
+
+
+class Solution1:
     def reverseWords(self, s: str) -> str:
         words = s.split()
         words = [w.strip() for w in words]

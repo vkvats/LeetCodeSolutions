@@ -6,11 +6,6 @@ class Solution:
         return (max(product1, product2))
 
 # Solution from leetcode
-sample
-244
-ms
-submission
-
 
 class SolutionF1:
     def maximumProduct(self, nums: List[int]) -> int:

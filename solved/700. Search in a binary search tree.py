@@ -1,3 +1,4 @@
+
 # My solution
 # Definition for a binary tree node.
 class TreeNode:
@@ -5,45 +6,32 @@ class TreeNode:
         self.val = val
         self.left = left
         self.right = right
+
+# New Method
+# Recursion
 class Solution:
     def searchBST(self, root: TreeNode, val: int) -> TreeNode:
-        if not root:
-            return root
-        return self.traverse(root, val)
+        if not root: return
+        if root.val == val: return root
+        elif root.val > val and root.left:
+            return self.searchBST(root.left, val)
+        elif root.val < val and root.right:
+            return self.searchBST(root.right, val)
 
-    def traverse(self, node, value):
-        if node:
-            if node.val == value:
-                return node
-            else:
-                if node.val > value:
-                    node = self.traverse(node.left, value)
-                else:
-                    node = self.traverse(node.right, value)
-        return node
-
-
-# solutions from leetcode
-class SolutionFast:
+# iterative method
+class SolutionIterative:
     def searchBST(self, root: TreeNode, val: int) -> TreeNode:
-        if root is None:
-            return None
+        if not root: return
+        stack = [root]
+        while stack:
+            node = stack.pop()
+            if node.val == val: return node
+            elif node.val< val and node.right:
+                stack.append(node.right)
+            elif node.val > val and node.left:
+                stack.append(node.left)
+            else: return
 
-        if val == root.val:
-            return root
 
-        return self.searchBST(root.left, val) if val < root.val else self.searchBST(root.right, val)
 
-class SolutionITR:
-    def searchBST(self, root: TreeNode, val: int) -> TreeNode:
-        curr = root
-        while curr:
-            print(curr.val)
-            if val < curr.val:
-                curr = curr.left
-            elif val > curr.val:
-                curr = curr.right
-            else:
-                return curr
-        return None
 
